@@ -22,7 +22,11 @@ class Event extends Model
         'items' => 'array'
     ];
     protected $dates = ['date'];
+    protected $guarded = [];
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function users() {
+        return $this->belongsToMany('App\Models\User');
     }
 }
